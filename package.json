@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npm-run-all build:*",
-    "build:transactional": "npx mjml -r transactional/validate.mjml -o .output/transactional/validate.j2"
+    "build:transactional_html": "npx mjml -r transactional/*.j2.mjml -o .output/transactional/",
+    "build:transactional_text": "cp -r transactional/*_TEXT.j2 .output/transactional/"
   },
   "author": "",
   "license": "ISC",
