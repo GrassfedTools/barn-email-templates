@@ -3,7 +3,8 @@ on:
   repository_dispatch:
     types: rebuild
   push:
-    branches: [ main ]
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -17,8 +18,8 @@ jobs:
     - name: npm run-script build
       run: npm run-script build
     
-    - uses: ncipollo/release-action@v1
-      with:
-        allowUpdates: true
-        artifacts: ".output/*"
-        token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: fnkr/github-action-ghr@v1.3
+      env:
+        GHR_COMPRESS: gz
+        GHR_PATH: .output/
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
