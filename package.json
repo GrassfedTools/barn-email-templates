@@ -1,0 +1,16 @@
+{
+  "name": "barn-email-templates",
+  "version": "1.0.0",
+  "description": "A collection of email templates for the Meadow Membership Management System",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm-run-all build:*",
+    "build:transactional": "npx mjml -r transactional/validate.mjml -o .output/transactional/validate.j2"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mjml": "^4.9.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
